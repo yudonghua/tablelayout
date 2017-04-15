@@ -1,19 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
+    android:orientation="vertical"
     android:scrollbars="vertical"
     android:fadingEdge="vertical">
-
-
-        <com.example.pc.tablayout.FlowLayout
-            android:id="@+id/flow"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fitsSystemWindows="true">
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:scrollbars="vertical"
+            android:fadingEdge="vertical">
 
 
-        </com.example.pc.tablayout.FlowLayout>
+                <fragment
+                    android:name="com.example.pc.tablayout.fragment_home"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:layout="@layout/fragment_home"
+                    android:id="@+id/f_home" />
+                <fragment
+                    android:name="com.example.pc.tablayout.fragment_banner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:layout="@layout/fragment_banner"
+                    android:id="@+id/f_banner" />
+                <fragment
+                    android:name="com.example.pc.tablayout.fragment_home_menu"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:layout="@layout/home_menu"
+                    android:id="@+id/f_h_menu" />
+                <fragment
+                    android:name="com.example.pc.tablayout.item_home_special"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:layout="@layout/item_home_special"
+                    android:id="@+id/f_h_special" />
+
+        </LinearLayout>
 
 
-</LinearLayout>
+</ScrollView>

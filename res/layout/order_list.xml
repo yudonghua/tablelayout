@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/normal_top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="8dp"
+        android:paddingLeft="10dp" >
+
+
+        <ImageView
+            android:id="@+id/img_icon"
+            android:layout_width="78dp"
+            android:layout_height="78dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:padding="3dp"
+            android:background="#ffffff"
+            android:src="@drawable/load_logo" />
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="8dp"
+            android:layout_toRightOf="@+id/img_icon"
+            android:layout_marginRight="10dp"
+            android:lines="2"
+            android:ellipsize="end"
+            android:text="AKG K450 头戴式耳机头戴式耳机头戴式耳机头戴式耳机头戴式耳机头戴式耳机" />
+
+        <TextView
+            android:id="@+id/tv_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/tv_percent"
+            android:layout_alignLeft="@+id/tv_title"
+            android:layout_marginBottom="4dp"
+            android:text="￥389.00"
+            android:textColor="@color/red" />
+
+        <TextView
+            android:id="@+id/tv_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/tv_percent"
+            android:layout_alignBottom="@+id/tv_percent"
+            android:layout_toRightOf="@+id/tv_percent"
+            android:layout_marginLeft="6dp"
+            android:textSize="@dimen/micro_text_size"
+            android:text="12386人" />
+
+        <ImageView
+            android:id="@+id/img_icon_vip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/tv_price"
+            android:layout_toRightOf="@+id/tv_price"
+            android:layout_marginBottom="2dp"
+            android:layout_marginLeft="2dp"
+            android:src="@drawable/product_price_vip" />
+
+        <TextView
+            android:id="@+id/tv_percent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/img_icon"
+            android:layout_alignLeft="@+id/tv_price"
+            android:text="好评95%"
+            android:textSize="@dimen/micro_text_size" />
+
+        <View
+            android:layout_height="@dimen/divider_height_middle"
+            android:layout_width="match_parent"
+            android:layout_below="@+id/img_icon"
+            android:layout_marginTop="8dp"/>
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="120dip"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:orientation="vertical">
+        <ImageView
+            android:layout_centerVertical="true"
+            android:id="@+id/icon_up_imgv"
+            android:layout_marginLeft="20dip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/icon_up_small"
+            android:scaleType="fitCenter" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/icon_up_imgv"
+            android:paddingLeft="@dimen/margin_space"
+            android:text="猜你喜欢"
+            android:maxLines="1" />
+    </RelativeLayout>
+    <include layout="@layout/item_home_special"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+</LinearLayout>
+

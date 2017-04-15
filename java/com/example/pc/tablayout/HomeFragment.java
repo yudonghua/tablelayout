@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
+import android.view.InflateException;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,23 +18,45 @@ import java.util.ArrayList;
  * Created by PC on 2016/8/21.
  */
 public class HomeFragment extends Fragment {
-    View item_view;
+    View view;
+    Fragment fragment_b;
+    Fragment fragment_h;
+    Fragment fragment_m;
+    Fragment fragment_s;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // TODO Auto-generated method stub
-        ViewGroup view = (ViewGroup) inflater.inflate(R.layout.activity_home, container, false);
-        FlowLayout flowLayout = (FlowLayout)view.findViewById(R.id.flow);
-        initControls(inflater,container,flowLayout);
+        if (view != null) {
+            ViewGroup parent = (ViewGroup) view.getParent();
+            if (parent != null)
+                parent.removeView(view);
+        }
+        try {
+            view = inflater.inflate(R.layout.activity_home, container, false);
+            fragment_b=getChildFragmentManager().findFragmentById(R.id.f_banner);
+            fragment_h=getChildFragmentManager().findFragmentById(R.id.f_home);
+            fragment_m=getChildFragmentManager().findFragmentById(R.id.f_h_menu);
+            fragment_s=getChildFragmentManager().findFragmentById(R.id.f_h_special);
+        } catch (InflateException e) {}
+
         return view;
     }
-    private void initControls(LayoutInflater inflater,ViewGroup container,FlowLayout flowLayout) {
-        for(int i = 0;i<10;i++){
-            item_view = (View) inflater.inflate(R.layout.item_goods, container, false);
-            TextView text1 = (TextView) item_view.findViewById(R.id.speed_name);
-            text1.setText("test"+i);
-            flowLayout.addView(item_view);
+    @Override
+    public void onDestroyView(){
+        super.onDestroyView();
+        if(fragment_b !=null){
+            getChildFragmentManager().beginTransaction().remove(fragment_b).commitAllowingStateLoss();
+        }
+        if(fragment_h !=null){
+            getChildFragmentManager().beginTransaction().remove(fragment_h).commitAllowingStateLoss();
+        }
+        if(fragment_m !=null){
+            getChildFragmentManager().beginTransaction().remove(fragment_m).commitAllowingStateLoss();
+        }
+        if(fragment_s !=null){
+            getChildFragmentManager().beginTransaction().remove(fragment_s).commitAllowingStateLoss();
         }
     }
 }

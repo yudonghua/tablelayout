@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/l_r"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -7,14 +8,16 @@
         android:id="@+id/loginf"
         android:name="com.example.pc.tablayout.LoginFragment"
         android:layout_height="wrap_content"
-        android:layout_width="wrap_content">
+        android:layout_width="wrap_content"
+        tools:layout="@layout/login">
 
     </fragment>
     <fragment
         android:id="@+id/registerf"
         android:name="com.example.pc.tablayout.RegisterFragment"
         android:layout_height="wrap_content"
-        android:layout_width="wrap_content">
+        android:layout_width="wrap_content"
+        tools:layout="@layout/register">
 
     </fragment>
 

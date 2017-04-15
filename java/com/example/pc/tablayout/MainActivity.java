@@ -2,6 +2,7 @@ package com.example.pc.tablayout;
 
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
@@ -14,7 +15,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends FragmentActivity {
     private TabLayout tab_FindFragment_title;                            //定义TabLayout
     private ViewPager vp_FindFragment_pager;                             //定义viewPager
     private FragmentPagerAdapter fAdapter;                               //定义adapter
@@ -23,9 +24,9 @@ public class MainActivity extends AppCompatActivity {
     private List<String> list_title;                                     //tab名称列表
 
     private Fragment homeFragment;              //热门推荐fragment
-    private Fragment fragment1;            //热门收藏fragment
-    private Fragment hotMonthFragment;                      //本月热榜fragment
-    private LRFragment lrFragment;
+    private Fragment classifyfragment;            //热门收藏fragment
+    private Fragment orderFragment;                      //本月热榜fragment
+    private PersonFragment personFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,16 +37,16 @@ public class MainActivity extends AppCompatActivity {
 
         //初始化各fragment
         homeFragment = new HomeFragment();
-        fragment1 = new HomeFragment();
-        hotMonthFragment = new HomeFragment();
-        lrFragment = new LRFragment();
+        classifyfragment = new ClassifyFragment();
+        orderFragment = new OrderFragment();
+        personFragment = new PersonFragment();
 
         //将fragment装进列表中
         list_fragment = new ArrayList<>();
         list_fragment.add(homeFragment);
-        list_fragment.add(fragment1);
-        list_fragment.add(hotMonthFragment);
-        list_fragment.add(lrFragment);
+        list_fragment.add(classifyfragment);
+        list_fragment.add(orderFragment);
+        list_fragment.add(personFragment);
 
 
         //将名称加载tab名字列表，正常情况下，我们应该在values/arrays.xml中进行定义然后调用
@@ -77,14 +78,14 @@ public class MainActivity extends AppCompatActivity {
         tab_FindFragment_title.getTabAt(3).setIcon(R.drawable.main_bottom_tab_personal_focus);
         //tab_FindFragment_title.set
     }
-    public void to_register(View view){
-        lrFragment.getChildFragmentManager().beginTransaction();
-        lrFragment.getChildFragmentManager().beginTransaction().hide(lrFragment.lfragment).show(lrFragment.rfragment).commit();
-        Toast.makeText(this, "Toast text, normal", Toast.LENGTH_SHORT).show();
-    }
-    public void to_login(View view){
-        lrFragment.getChildFragmentManager().beginTransaction();
-        lrFragment.getChildFragmentManager().beginTransaction().hide(lrFragment.rfragment).show(lrFragment.lfragment).commit();
-        Toast.makeText(this, "Toast text, normal", Toast.LENGTH_SHORT).show();
-    }
+//    public void to_register(View view){
+//        lrFragment.getChildFragmentManager().beginTransaction();
+//        lrFragment.getChildFragmentManager().beginTransaction().hide(lrFragment.lfragment).show(lrFragment.rfragment).commit();
+//        Toast.makeText(this, "Toast text, normal", Toast.LENGTH_SHORT).show();
+//    }
+//    public void to_login(View view){
+//        lrFragment.getChildFragmentManager().beginTransaction();
+//        lrFragment.getChildFragmentManager().beginTransaction().hide(lrFragment.rfragment).show(lrFragment.lfragment).commit();
+//        Toast.makeText(this, "Toast text, normal", Toast.LENGTH_SHORT).show();
+//    }
 }
